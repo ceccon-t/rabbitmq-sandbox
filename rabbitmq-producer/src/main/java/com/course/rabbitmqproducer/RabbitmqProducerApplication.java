@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.course.rabbitmqproducer.entity.Picture;
-import com.course.rabbitmqproducer.producer.PictureProducer;
+import com.course.rabbitmqproducer.producer.PictureProducerTwo;
 
 @SpringBootApplication
 //@EnableScheduling
@@ -27,10 +27,13 @@ public class RabbitmqProducerApplication implements CommandLineRunner{
 	
 	@Autowired
 	private HumanResourceProducer employeeJsonProducer;
-	*/
 	
 	@Autowired
 	private PictureProducer pictureProducer;
+	*/
+	
+	@Autowired
+	private PictureProducerTwo pictureProducer;
 	
 	private final List<String> SOURCES = List.of("mobile", "web");
 	private final List<String> TYPES = List.of("jpg", "png", "svg");
