@@ -12,20 +12,20 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//@Service
-public class EmployeeJsonConsumer {
+@Service
+public class MarketingConsumer {
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
-	private static final Logger log = LoggerFactory.getLogger(EmployeeJsonConsumer.class);
+	private static final Logger log = LoggerFactory.getLogger(MarketingConsumer.class);
 	
-	@RabbitListener(queues = "course.employee")
+	@RabbitListener(queues = "q.hr.marketing")
 	public void listen(String message) {
 		
 		Employee employee;
 		try {
 			employee = objectMapper.readValue(message, Employee.class);
-			log.info("Employee is {}", employee);
+			log.info("On marketing, employee is {}", employee);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {

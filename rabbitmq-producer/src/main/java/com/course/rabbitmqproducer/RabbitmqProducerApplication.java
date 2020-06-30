@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.course.rabbitmqproducer.entity.Employee;
-import com.course.rabbitmqproducer.producer.EmployeeJsonProducer;
+import com.course.rabbitmqproducer.producer.HumanResourceProducer;
 
 @SpringBootApplication
 //@EnableScheduling
@@ -20,10 +20,13 @@ public class RabbitmqProducerApplication implements CommandLineRunner{
 	
 	@Autowired
 	private FixedRateProducer fixedRateProducer;
-	*/
 	
 	@Autowired
 	private EmployeeJsonProducer employeeJsonProducer;
+	*/
+	
+	@Autowired
+	private HumanResourceProducer employeeJsonProducer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RabbitmqProducerApplication.class, args);
