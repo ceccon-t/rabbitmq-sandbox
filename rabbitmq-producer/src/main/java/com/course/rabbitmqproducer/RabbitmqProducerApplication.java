@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.course.rabbitmqproducer.entity.Picture;
-import com.course.rabbitmqproducer.producer.PictureProducerTwo;
+import com.course.rabbitmqproducer.producer.MyPictureProducer;
 
 @SpringBootApplication
 //@EnableScheduling
@@ -30,10 +30,13 @@ public class RabbitmqProducerApplication implements CommandLineRunner{
 	
 	@Autowired
 	private PictureProducer pictureProducer;
-	*/
 	
 	@Autowired
 	private PictureProducerTwo pictureProducer;
+	*/
+	
+	@Autowired
+	private MyPictureProducer pictureProducer;
 	
 	private final List<String> SOURCES = List.of("mobile", "web");
 	private final List<String> TYPES = List.of("jpg", "png", "svg");
@@ -52,6 +55,7 @@ public class RabbitmqProducerApplication implements CommandLineRunner{
 			employeeJsonProducer.sendMessage(employee);
 		}
 		*/
+		/*
 		for (int i = 0; i < 10; i++) {
 			var p = new Picture();
 			p.setName("Picture " + i);
@@ -61,6 +65,17 @@ public class RabbitmqProducerApplication implements CommandLineRunner{
 			
 			pictureProducer.sendMessage(p);
 		} 
+		*/
+		var p = new Picture();
+		p.setName("Picture " + 1);
+		p.setSize(ThreadLocalRandom.current().nextLong(9001, 10001));
+		p.setSource(SOURCES.get(1 % SOURCES.size()));
+		p.setType(TYPES.get(1 % TYPES.size()));
+		
+		System.out.println("Sending picture");
+		pictureProducer.sendMessage(p);
+		System.out.println("Sent picture");
+		
 	}
 
 }

@@ -1,0 +1,7 @@
+sprint:
+   rabbitmq:
+      listener:
+         direct:
+            acknowledge-mode: manual
+         simple:
+            acknowledge-mode: manual
