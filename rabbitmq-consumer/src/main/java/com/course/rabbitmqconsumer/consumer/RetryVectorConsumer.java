@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 
-@Service
+//@Service
 public class RetryVectorConsumer {
 
 	private static final String DEAD_EXCHANGE_NAME = "x.guideline.dead";
