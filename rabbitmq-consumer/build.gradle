@@ -21,6 +21,9 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+	
+	// for retry mechanism lecture
+	implementation 'org.apache.commons:commons-lang3:3.8.1'
 }
 
 test {
